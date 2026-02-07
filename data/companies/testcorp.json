@@ -1,0 +1,17 @@
+{
+  "id": "testcorp",
+  "name": "TestCorp",
+  "description": "wedwedwed",
+  "icon": "T",
+  "iconColor": "bg-blue-500",
+  "logo": "data/logos/testcorp-1768327252394.png",
+  "tags": [
+    "TEST",
+    "DEMO"
+  ],
+  "employees": 2323,
+  "location": "wedwed",
+  "website": "https://support.google.com/chrome?p=help&ctx=keyboard#topic=7439538",
+  "founded": 2323,
+  "openPositions": []
+}

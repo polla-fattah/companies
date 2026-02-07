@@ -1,0 +1,36 @@
+{
+  "id": "techcorp",
+  "name": "TECHCORP",
+  "description": "TechCorp is a leading provider of enterprise software solutions, helping businesses streamline operations and achieve digital excellence.",
+  "icon": "T",
+  "iconColor": "bg-green-500",
+  "logo": "data/logos/techcorp.png",
+  "tags": ["SOFTWARE ENG.", "BACK-END", "MORE!"],
+  "employees": 1200,
+  "openPositions": [
+    {
+      "title": "Backend Engineer",
+      "department": "Engineering",
+      "location": "Seattle, WA",
+      "type": "Full-time",
+      "needed": 7
+    },
+    {
+      "title": "Software Architect",
+      "department": "Engineering",
+      "location": "Remote",
+      "type": "Full-time",
+      "needed": 2
+    },
+    {
+      "title": "QA Engineer",
+      "department": "Quality Assurance",
+      "location": "Seattle, WA",
+      "type": "Full-time",
+      "needed": 3
+    }
+  ],
+  "website": "https://www.techcorp.com",
+  "founded": 2010
+}
+

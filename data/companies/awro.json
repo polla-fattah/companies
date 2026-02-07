@@ -1,0 +1,36 @@
+{
+  "id": "awro",
+  "name": "AWRO",
+  "description": "AWRO is a cutting-edge technology company specializing in innovative software solutions and digital transformation services for enterprises worldwide.",
+  "icon": "A",
+  "iconColor": "bg-pink-500",
+  "logo": "data/logos/awro.png",
+  "tags": ["SOFTWARE ENG.", "FULL-STACK", "MORE!"],
+  "employees": 500,
+  "openPositions": [
+    {
+      "title": "Full Stack Developer",
+      "department": "Engineering",
+      "location": "Austin, TX",
+      "type": "Full-time",
+      "needed": 6
+    },
+    {
+      "title": "Senior Software Engineer",
+      "department": "Engineering",
+      "location": "Remote",
+      "type": "Full-time",
+      "needed": 4
+    },
+    {
+      "title": "UI/UX Designer",
+      "department": "Design",
+      "location": "Austin, TX",
+      "type": "Full-time",
+      "needed": 2
+    }
+  ],
+  "website": "https://www.awro.com",
+  "founded": 2015
+}
+

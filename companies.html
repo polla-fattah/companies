@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Companies - findycod.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    <header class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 px-4">
+        <nav class="navbar-container flex items-center">
+            <a href="index.html" class="navbar-link">HOME</a>
+            <a href="companies.html" class="navbar-link active">COMPANY</a>
+            <a href="create-company.html" class="navbar-link">ADD</a>
+            <a href="#" class="navbar-link">ABOUT</a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 pt-40 pb-12">
+        <h1 class="text-3xl md:text-6xl font-bold text-center text-slate-900 mb-4 fade-in-up">
+            Explore All <span class="text-gradient">Companies</span>
+        </h1>
+        <p class="text-center text-slate-500 mb-12 fade-in-up">Discover the best software teams around the world.</p>
+
+        <!-- Search/Filter -->
+        <div class="max-w-xl mx-auto mb-16 fade-in-up">
+            <div class="relative">
+                <input type="text" id="search-input" placeholder="Search companies by name or tag..."
+                    class="w-full px-6 py-4 rounded-full border border-gray-200 shadow-md focus:shadow-xl focus:border-indigo-500 outline-none transition-all pl-12">
+                <svg class="w-6 h-6 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Companies Grid -->
+        <div id="all-companies-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Loaded by JS -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-8 px-4 mt-12">
+        <div class="container mx-auto text-center text-gray-600">
+            <p>&copy; 2026 findycod. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Specific logic for this page
+        document.addEventListener('DOMContentLoaded', async () => {
+            const container = document.getElementById('all-companies-grid');
+            const searchInput = document.getElementById('search-input');
+            let allCompanies = [];
+
+            // Helper to get ALL data
+            async function fetchAllData() {
+                container.innerHTML = '<p class="col-span-full text-center text-gray-500">Loading...</p>';
+
+                const fetched = [];
+                // Load from static data
+                if (typeof COMPANIES_DATA !== 'undefined') {
+                    Object.values(COMPANIES_DATA).forEach(c => fetched.push(c));
+                }
+
+                // Fetch local
+                const local = JSON.parse(localStorage.getItem('custom_companies') || '[]');
+
+                allCompanies = [...fetched, ...local];
+                renderGrid(allCompanies);
+            }
+
+            function renderGrid(list) {
+                container.innerHTML = '';
+                if (list.length === 0) {
+                    container.innerHTML = '<p class="col-span-full text-center text-gray-500">No companies found.</p>';
+                    return;
+                }
+
+                list.forEach(company => {
+                    // Use the unified card creator from script.js, or a variation of it
+                    // We will adapt createRecentCard style but for grid
+                    const card = createRecentCard(company);
+                    // Remove negative margin specifically for grid view if needed, 
+                    // but user wanted "same design".
+                    // However, grid items might need slightly different wrapper classes.
+                    card.className = 'company-card bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col gap-4';
+
+                    // Rewrite inner HTML for vertical layout if preferred, OR keep horizontal
+                    // User said "like recent", which is horizontal list. 
+                    // In a grid, vertical usually looks better. 
+                    // But "like recent" implies horizontal structure. 
+                    // Let's stick closer to the Recent Card structure but clean up styles.
+
+                    // Actually, let's just reuse the element returned by createRecentCard
+                    // but we may need to adjust the width/flex behavior.
+
+                    container.appendChild(card);
+                });
+
+                // Force visibility
+                setTimeout(() => {
+                    document.querySelectorAll('.fade-in-section').forEach(el => {
+                        el.classList.add('visible');
+                        el.style.opacity = '1';
+                    });
+                }, 100);
+            }
+
+            // Search
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                const filtered = allCompanies.filter(c =>
+                    c.name.toLowerCase().includes(term) ||
+                    (c.tags || []).some(t => t.toLowerCase().includes(term))
+                );
+                renderGrid(filtered);
+            });
+
+            fetchAllData();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+{
+  "id": "gigant",
+  "name": "GIGANT",
+  "description": "Gigant Technology was established in 2013 to meet the needs of software, network, and technical support for public and private organizations.",
+  "icon": "G",
+  "iconColor": "bg-blue-400",
+  "logo": "data/logos/gigant.png",
+  "tags": ["SOFTWARE ENG.", "FRONT-END", "MORE!"],
+  "employees": 250,
+  "openPositions": [
+    {
+      "title": "Software Engineer",
+      "department": "Engineering",
+      "location": "San Francisco, CA",
+      "type": "Full-time",
+      "needed": 8
+    },
+    {
+      "title": "Frontend Developer",
+      "department": "Engineering",
+      "location": "Remote",
+      "type": "Full-time",
+      "needed": 4
+    },
+    {
+      "title": "Network Engineer",
+      "department": "Infrastructure",
+      "location": "San Francisco, CA",
+      "type": "Full-time",
+      "needed": 2
+    },
+    {
+      "title": "DevOps Engineer",
+      "department": "Infrastructure",
+      "location": "Remote",
+      "type": "Full-time",
+      "needed": 3
+    }
+  ],
+  "website": "https://www.gigant.com",
+  "founded": 2013
+}
+

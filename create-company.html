@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Company - findycod.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    <header class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 px-4">
+        <nav class="navbar-container flex items-center">
+            <a href="index.html" class="navbar-link">HOME</a>
+            <a href="companies.html" class="navbar-link">COMPANY</a>
+            <a href="#" class="navbar-link active">ADD</a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 pt-32 pb-12">
+        <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-8 fade-in-up">
+            <h1 class="text-3xl font-bold text-gray-900 mb-8 text-center">Add New Company</h1>
+
+            <form id="add-company-form" class="space-y-6">
+                <!-- Basic Info -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2" for="name">Company Name</label>
+                        <input type="text" id="name" name="name" required
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2" for="id">Company ID (slug)</label>
+                        <input type="text" id="id" name="id" required placeholder="e.g. google, meta"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-gray-50">
+                        <p class="text-xs text-gray-400 mt-1">Unique identifier, lowercase, no spaces.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-bold mb-2" for="description">Description</label>
+                    <textarea id="description" name="description" rows="4" required
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"></textarea>
+                </div>
+
+                <!-- Icons & Colors -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2" for="icon">Icon Letter</label>
+                        <input type="text" id="icon" name="icon" maxlength="1" placeholder="e.g. G"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2" for="iconColor">Theme Color</label>
+                        <select id="iconColor" name="iconColor"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                            <option value="bg-blue-500">Blue</option>
+                            <option value="bg-red-500">Red</option>
+                            <option value="bg-green-500">Green</option>
+                            <option value="bg-purple-500">Purple</option>
+                            <option value="bg-yellow-500">Yellow</option>
+                            <option value="bg-pink-500">Pink</option>
+                            <option value="bg-indigo-500">Indigo</option>
+                            <option value="bg-gray-800">Black/Dark</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Logo Upload -->
+                <div>
+                    <label class="block text-gray-700 font-bold mb-2" for="logo">Logo Image</label>
+                    <div class="flex items-center gap-4">
+                        <input type="file" id="logo-upload" accept="image/*"
+                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition-all">
+                        <div id="logo-preview"
+                            class="w-16 h-16 rounded bg-gray-100 flex items-center justify-center text-gray-400 overflow-hidden border border-gray-200">
+                            No Img
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Details -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2" for="location">Location</label>
+                        <input type="text" id="location" name="location" placeholder="e.g. San Francisco, CA"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2" for="founded">Founded Year</label>
+                        <input type="number" id="founded" name="founded" placeholder="2024"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2" for="employees">Employees</label>
+                        <input type="number" id="employees" name="employees" placeholder="100"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-bold mb-2" for="website">Website</label>
+                    <input type="url" id="website" name="website" placeholder="https://example.com"
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-bold mb-2" for="tags">Tags (comma separated)</label>
+                    <input type="text" id="tags" name="tags" placeholder="TECH, INNOVATION, AI"
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none transition-all">
+                </div>
+
+                <!-- Positions Section -->
+                <div class="pt-6 border-t border-gray-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-bold text-gray-900">Positions</h2>
+                        <button type="button" id="add-position-btn"
+                            class="text-sm bg-indigo-50 text-indigo-600 px-4 py-2 rounded-lg font-semibold hover:bg-indigo-100 transition-all border border-indigo-100">
+                            + Add Position
+                        </button>
+                    </div>
+                    <div id="positions-container" class="space-y-4">
+                        <!-- Dynamic position blocks will be added here -->
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-6">
+                    <button type="submit" class="btn-primary w-full py-4 text-lg">
+                        Create Company
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Auto-generate ID from name
+        document.getElementById('name').addEventListener('input', function (e) {
+            const slug = e.target.value.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+            document.getElementById('id').value = slug;
+
+            // Auto-set icon
+            if (e.target.value.length > 0) {
+                document.getElementById('icon').value = e.target.value.charAt(0).toUpperCase();
+            }
+        });
+
+        // Logo preview
+        let logoBase64 = null;
+        let logoFileName = null;
+
+        document.getElementById('logo-upload').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    logoBase64 = e.target.result;
+                    logoFileName = file.name;
+                    document.getElementById('logo-preview').innerHTML = `<img src="${logoBase64}" class="w-full h-full object-cover">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Positions dynamic logic
+        const positionsContainer = document.getElementById('positions-container');
+        const addPositionBtn = document.getElementById('add-position-btn');
+
+        function createPositionBlock() {
+            const div = document.createElement('div');
+            div.className = 'position-block bg-slate-50 p-4 rounded-xl border border-slate-200 relative group fade-in-up';
+            div.innerHTML = `
+                <button type="button" class="remove-pos absolute top-2 right-2 text-slate-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" placeholder="Job Title (e.g. Backend Engineer)" class="pos-title w-full px-3 py-2 rounded-lg border border-slate-300 focus:border-indigo-500 outline-none text-sm" required>
+                    <input type="text" placeholder="Department (e.g. Engineering)" class="pos-dept w-full px-3 py-2 rounded-lg border border-slate-300 focus:border-indigo-500 outline-none text-sm" required>
+                    <input type="text" placeholder="Location (e.g. Remote)" class="pos-loc w-full px-3 py-2 rounded-lg border border-slate-300 focus:border-indigo-500 outline-none text-sm" required>
+                    <select class="pos-type w-full px-3 py-2 rounded-lg border border-slate-300 focus:border-indigo-500 outline-none text-sm">
+                        <option value="Full-time">Full-time</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Freelance">Freelance</option>
+                        <option value="Internship">Internship</option>
+                    </select>
+                </div>
+            `;
+
+            div.querySelector('.remove-pos').addEventListener('click', () => div.remove());
+            return div;
+        }
+
+        addPositionBtn.addEventListener('click', () => {
+            positionsContainer.appendChild(createPositionBlock());
+        });
+
+        // Form Submission (Pure JS - LocalStorage)
+        document.getElementById('add-company-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            submitBtn.innerText = 'Creating...';
+            submitBtn.disabled = true;
+
+            try {
+                // 1. Gather Data
+                const formData = new FormData(e.target);
+                const companyId = formData.get('id');
+
+                // Collect Positions
+                const positionBlocks = document.querySelectorAll('.position-block');
+                const openPositions = Array.from(positionBlocks).map(block => ({
+                    title: block.querySelector('.pos-title').value,
+                    department: block.querySelector('.pos-dept').value,
+                    location: block.querySelector('.pos-loc').value,
+                    type: block.querySelector('.pos-type').value,
+                    needed: 0 // Default since we removed recruiter count
+                }));
+
+                const companyData = {
+                    id: companyId,
+                    name: formData.get('name'),
+                    description: formData.get('description'),
+                    icon: formData.get('icon'),
+                    iconColor: formData.get('iconColor'),
+                    logo: logoBase64, // Base64 string from the file reader
+                    tags: formData.get('tags').split(',').map(t => t.trim()).filter(t => t),
+                    employees: parseInt(formData.get('employees')) || 0,
+                    location: formData.get('location'),
+                    website: formData.get('website'),
+                    founded: parseInt(formData.get('founded')) || new Date().getFullYear(),
+                    openPositions: openPositions,
+                    isCustom: true // Flag to identify local data
+                };
+
+                // 2. Save to LocalStorage
+                const existingData = localStorage.getItem('custom_companies');
+                let companies = existingData ? JSON.parse(existingData) : [];
+
+                // Remove existing if overwriting (by ID)
+                companies = companies.filter(c => c.id !== companyId);
+                companies.push(companyData);
+
+                localStorage.setItem('custom_companies', JSON.stringify(companies));
+
+                // 3. Success & Redirect
+                alert('Company saved locally in your browser!');
+                window.location.href = `company.html?id=${companyId}`;
+
+            } catch (error) {
+                console.error(error);
+                alert('Error: ' + error.message);
+                submitBtn.innerText = 'Create Company';
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+
+</html>

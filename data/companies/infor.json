@@ -1,0 +1,36 @@
+{
+  "id": "infor",
+  "name": "INFOR",
+  "description": "Infor is a global leader in business cloud software specialized by industry. We build complete industry suites in the cloud and efficiently deploy technology that puts the user experience first, leverages data science, and integrates easily into existing systems.",
+  "icon": "I",
+  "iconColor": "bg-yellow-500",
+  "logo": "data/logos/infor.png",
+  "tags": ["SOFTWARE ENG.", "FRONT-END", "BACK-END"],
+  "employees": 18000,
+  "openPositions": [
+    {
+      "title": "Senior Software Engineer",
+      "department": "Engineering",
+      "location": "Remote",
+      "type": "Full-time",
+      "needed": 5
+    },
+    {
+      "title": "Frontend Developer",
+      "department": "Engineering",
+      "location": "New York, NY",
+      "type": "Full-time",
+      "needed": 3
+    },
+    {
+      "title": "Backend Developer",
+      "department": "Engineering",
+      "location": "Remote",
+      "type": "Full-time",
+      "needed": 4
+    }
+  ],
+  "website": "https://www.infor.com",
+  "founded": 2002
+}
+
