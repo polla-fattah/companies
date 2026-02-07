@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Load company details
-function loadCompanyDetails() {
+async function loadCompanyDetails() {
     const urlParams = new URLSearchParams(window.location.search);
     const companyId = urlParams.get('id');
 
@@ -67,17 +67,31 @@ function loadCompanyDetails() {
 
     let company = null;
 
-    // Check static data
-    if (typeof COMPANIES_DATA !== 'undefined' && COMPANIES_DATA[companyId]) {
-        company = COMPANIES_DATA[companyId];
+    // 1. Try to fetch from individual JSON file first (for real-time updates)
+    try {
+        const response = await fetch(`data/companies/${companyId}.json`);
+        if (response.ok) {
+            company = await response.json();
+            console.log('Loaded company data from JSON file');
+        }
+    } catch (e) {
+        console.warn('Could not fetch JSON file, will try fallbacks');
     }
-    // Fallback: Check LocalStorage
-    else {
+
+    // 2. Fallback to static data (data.js) if JSON fetch failed
+    if (!company && typeof COMPANIES_DATA !== 'undefined' && COMPANIES_DATA[companyId]) {
+        company = COMPANIES_DATA[companyId];
+        console.log('Loaded company data from static COMPANIES_DATA');
+    }
+
+    // 3. Fallback to LocalStorage (for custom companies)
+    if (!company) {
         try {
             const localData = localStorage.getItem('custom_companies');
             if (localData) {
                 const companies = JSON.parse(localData);
                 company = companies.find(c => c.id === companyId);
+                if (company) console.log('Loaded company data from LocalStorage');
             }
         } catch (e) {
             console.error('Error reading local storage', e);
@@ -148,6 +162,7 @@ function updateCompanyPage(company) {
     // Sidebar Info
     document.getElementById('company-founded').textContent = company.founded || '-';
     document.getElementById('company-employees').textContent = company.employees || '-';
+    document.getElementById('company-phone').textContent = company.phone || '-';
 
     const websiteLink = document.getElementById('company-website');
     if (company.website) {

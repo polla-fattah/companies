@@ -13,8 +13,8 @@
     <header class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-6 px-4">
         <nav class="navbar-container flex items-center">
             <a href="index.html" class="navbar-link">HOME</a>
-            <a href="companies.html" class="navbar-link active">COMPANY</a>
-            <a href="create-company.html" class="navbar-link">ADD</a>
+            <a href="companies.html" class="navbar-link">COMPANIES</a>
+            <a href="contribute.html" class="navbar-link">CONTRIBUTE</a>
             <a href="#" class="navbar-link">ABOUT</a>
         </nav>
     </header>
@@ -44,10 +44,26 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 py-8 px-4 mt-12">
-        <div class="container mx-auto text-center text-gray-600">
-            <p>&copy; 2026 findycod. All rights reserved.</p>
+    <footer class="bg-slate-900 border-t border-slate-800 py-12 px-4 mt-12">
+        <div class="container mx-auto text-center">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold text-white">findycod.</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="index.html" class="text-slate-300 hover:text-white font-medium">HOME</a>
+                    <a href="companies.html" class="text-slate-300 hover:text-white font-medium">COMPANIES</a>
+                    <a href="contribute.html" class="text-slate-300 hover:text-white font-medium">CONTRIBUTE</a>
+                    <a href="#" class="text-slate-300 hover:text-white font-medium">ABOUT US</a>
+                </div>
+            </div>
+            <p class="text-slate-500 mt-8 text-sm">&copy; 2026 findycod. All rights reserved.</p>
         </div>
     </footer>
 

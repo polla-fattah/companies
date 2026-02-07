@@ -5,7 +5,11 @@
   "icon": "T",
   "iconColor": "bg-green-500",
   "logo": "data/logos/techcorp.png",
-  "tags": ["SOFTWARE ENG.", "BACK-END", "MORE!"],
+  "tags": [
+    "SOFTWARE ENG.",
+    "BACK-END",
+    "MORE!"
+  ],
   "employees": 1200,
   "openPositions": [
     {
@@ -31,6 +35,6 @@
     }
   ],
   "website": "https://www.techcorp.com",
+  "phone": "+1 (555) 456-7890",
   "founded": 2010
 }
-

@@ -32,6 +32,7 @@ const COMPANIES_DATA = {
             }
         ],
         "website": "https://www.awro.com",
+        "phone": "+1 (555) 123-4567",
         "founded": 2015
     },
     "gigant": {
@@ -74,6 +75,7 @@ const COMPANIES_DATA = {
             }
         ],
         "website": "https://www.gigant.com",
+        "phone": "+1 (555) 234-5678",
         "founded": 2013
     },
     "infor": {
@@ -109,6 +111,7 @@ const COMPANIES_DATA = {
             }
         ],
         "website": "https://www.infor.com",
+        "phone": "+1 (555) 345-6789",
         "founded": 2002
     },
     "techcorp": {
@@ -144,6 +147,7 @@ const COMPANIES_DATA = {
             }
         ],
         "website": "https://www.techcorp.com",
+        "phone": "+1 (555) 456-7890",
         "founded": 2010
     },
     "testcorp": {
@@ -160,6 +164,7 @@ const COMPANIES_DATA = {
         "employees": 2323,
         "location": "wedwed",
         "website": "https://support.google.com/chrome?p=help&ctx=keyboard#topic=7439538",
+        "phone": "+1 (555) 001-0010",
         "founded": 2323,
         "openPositions": []
     }
